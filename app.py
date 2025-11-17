@@ -1,8 +1,12 @@
-
+from datetime import datetime
 def AddTransactions():
+    
     print("\n")
-    print("Adding Transactions...")
-    print("\n")
+    amount = input("Enter Amount:")
+    category = input("Category: Food, other:").lower()
+    transactionType = input("Type: income/expense:").lower()
+    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Transaction Added: {date}, {amount}, {category}, {transactionType}")
     Menu()
 
 def ViewTransactions():
