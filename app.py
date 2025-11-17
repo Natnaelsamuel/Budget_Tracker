@@ -25,14 +25,15 @@ def ViewTransactions():
         print("\nNo transactions available.\n")
         Menu()
     else:
-        pprint(transactions)
+        pprint("\n" + transactions)
         Menu()
 
 
 def ViewSummary():
-    print("\n")
-    print("Viewing Summary...")
-    print("\n")
+    total_income = sum(float(t["amount"]) for t in transactions if t["type"] == "income")
+    total_expense = sum(float(t["amount"]) for t in transactions if t["type"] == "expense")
+    print(f"\nTotal Income: {total_income}")
+    print(f"Total Expense: {total_expense}\n")
     Menu()
 
 
