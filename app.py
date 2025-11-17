@@ -1,25 +1,35 @@
 from datetime import datetime
+
+transactions = []
+
+
 def AddTransactions():
-    
     print("\n")
     amount = input("Enter Amount:")
     category = input("Category: Food, other:").lower()
     transactionType = input("Type: income/expense:").lower()
     date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"Transaction Added: {date}, {amount}, {category}, {transactionType}")
+    transactions.append({
+        "date": date,
+        "amount": amount,
+        "category": category,
+        "type": transactionType
+    })
+    print(transactions)
     Menu()
+
 
 def ViewTransactions():
     print("\n")
-    print("Viewing Transactions...")
-    print("\n")
     Menu()
+
 
 def ViewSummary():
     print("\n")
     print("Viewing Summary...")
     print("\n")
     Menu()
+
 
 def Menu():
     print("=== Personal Budget Tracker ===")
@@ -40,7 +50,7 @@ def Menu():
         return
     else:
         print("Invalid choice. Please try again.")
-        Menu();
+        Menu()
 
 
 Menu()
