@@ -1,4 +1,5 @@
 from datetime import datetime
+from pprint import pprint
 
 transactions = []
 
@@ -15,13 +16,17 @@ def AddTransactions():
         "category": category,
         "type": transactionType
     })
-    print(transactions)
+    print("\nTransacion Added Successfully!\n")
     Menu()
 
 
 def ViewTransactions():
-    print("\n")
-    Menu()
+    if not transactions:
+        print("\nNo transactions available.\n")
+        Menu()
+    else:
+        pprint(transactions)
+        Menu()
 
 
 def ViewSummary():
